@@ -1,0 +1,7 @@
+include/*
+test/*
+^test/*.nim
+examples/*
+^examples/*.nim
+*.png
+*.svg
