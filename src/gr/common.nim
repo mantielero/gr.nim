@@ -44,7 +44,9 @@ proc setWindow*(xmin, xmax, ymin, ymax, zmin, zmax:float) =
   - `zmin`: min z-value
   - `zmax`: max z-value
   ]##
-  gr_setwindow3d(xmin.cdouble, xmax.cdouble, ymin.cdouble, ymax.cdouble, zmin.cdouble, zmax.cdouble)
+  gr_setwindow3d( xmin.cdouble, xmax.cdouble, 
+                  ymin.cdouble, ymax.cdouble, 
+                  zmin.cdouble, zmax.cdouble )
 
 
 template on*(filename: string, body: untyped) =

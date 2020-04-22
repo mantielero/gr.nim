@@ -39,7 +39,9 @@ proc grid*(x_tick, y_tick, z_tick, x_org, y_org, z_org: float, major_x, major_y,
   - `major_y`: Unitless integer value specifying the number of minor grid lines between major grid lines on the Y axis. Values of 0 or 1 imply no grid lines.  
   - `major_z`: Unitless integer value specifying the number of minor grid lines between major grid lines on the Z axis. Values of 0 or 1 imply no grid lines.
   ]##
-  gr_grid3d(x_tick.cdouble, y_tick.cdouble, z_tick.cdouble, x_org.cdouble, y_org.cdouble, z_org.cdouble, major_x.cint, major_y.cint, major_z.cint) 
+  gr_grid3d( x_tick.cdouble, y_tick.cdouble, z_tick.cdouble, 
+             x_org.cdouble, y_org.cdouble, z_org.cdouble, 
+             major_x.cint, major_y.cint, major_z.cint ) 
 
 
 proc grid*(minor_spacing:array[2,float], origin:array[2,float],major:array[2,int]) =
