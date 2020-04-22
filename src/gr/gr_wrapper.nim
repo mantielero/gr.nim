@@ -1,215 +1,208 @@
-#import os
-#import nimterop/types   # Provides "defineEnum"
-#[
-  https://gr-framework.org/environment_variables.html
-  GRDIR
-]#
+# Resetting /home/jose/src/gr.nim/src/wrapper/build
+# Importing /home/jose/src/gr.nim/src/wrapper/build/lib/gr/gr.h
+# Generated at 2020-04-22T22:49:26+02:00
+# Command line:
+#   /home/jose/.nimble/pkgs/nimterop-#head/nimterop/toast --preprocess --pnim --dynlib=dynlibFile --nim:/home/jose/.choosenim/toolchains/nim-1.2.0/bin/nim /home/jose/src/gr.nim/src/wrapper/build/lib/gr/gr.h
+
+{.hint[ConvFromXtoItselfNotNeeded]: off.}
+
+import nimterop/types
 
 when defined(windows):
-  const
-    libName = "libGR.dll"
+  const dynlibFile = "libGR.dll"
+
 elif defined(linux):
-  const
-    libName = "/usr/gr/lib/libGR.so"
+  const dynlibFile = "/usr/gr/lib/libGR.so"
 
 const
   GR_PROJECTION_DEFAULT* = 0
   GR_PROJECTION_ORTHOGRAPHIC* = 1
   GR_PROJECTION_PERSPECTIVE* = 2
-  
 
-#{.pragma: impgr, importc, header: headergr.}
+{.pragma: impgr, importc.}
+{.pragma: impgrC, impgr, cdecl, dynlib: dynlibFile.}
 
- 
 type
-  vertex_t*   = object #{.impgr.}
+  vertex_t* {.bycopy.} = object
     x*: cdouble
     y*: cdouble
 
-# TODO
-proc gr_initgr*()    {.importc,dynlib: libName.} 
-proc gr_opengks*()    {.importc,dynlib: libName.}
-proc gr_closegks*()    {.importc,dynlib: libName.}
-proc gr_inqdspsize*(a:ptr cdouble, b:ptr cdouble, c:ptr cint, d:ptr cint)    {.importc,dynlib: libName.}
-# DONE
-proc gr_openws*(a:cint, b:cstring, c:cint)    {.importc,dynlib: libName.}
-proc gr_closews*(a:cint)    {.importc,dynlib: libName.}
-proc gr_activatews*(a:cint)    {.importc,dynlib: libName.}
-proc gr_deactivatews*(a:cint)    {.importc,dynlib: libName.}
-proc gr_configurews*()    {.importc,dynlib: libName.}
-proc gr_clearws*()    {.importc,dynlib: libName.}
-proc gr_updatews*()    {.importc,dynlib: libName.}
-proc gr_polyline*(a:cint, b:ptr cdouble, c:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_polymarker*(a:cint, b:ptr cdouble, c:ptr cdouble)    {.importc,dynlib: libName.}
 
-proc gr_text*(a:cdouble, b:cdouble, c:cstring)    {.importc,dynlib: libName.}
+proc gr_initgr*() {.impgrC.}
+proc gr_opengks*() {.impgrC.}
+proc gr_closegks*() {.impgrC.}
+proc gr_inqdspsize*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cint, a4: ptr cint) {.impgrC.}
+proc gr_openws*(a1: cint, a2: cstring, a3: cint) {.impgrC.}
+proc gr_closews*(a1: cint) {.impgrC.}
+proc gr_activatews*(a1: cint) {.impgrC.}
+proc gr_deactivatews*(a1: cint) {.impgrC.}
+proc gr_configurews*() {.impgrC.}
+proc gr_clearws*() {.impgrC.}
+proc gr_updatews*() {.impgrC.}
+proc gr_polyline*(a1: cint, a2: ptr cdouble, a3: ptr cdouble) {.impgrC.}
+proc gr_polymarker*(a1: cint, a2: ptr cdouble, a3: ptr cdouble) {.impgrC.}
+proc gr_text*(a1: cdouble, a2: cdouble, a3: cstring) {.impgrC.}
+proc gr_inqtext*(a1: cdouble, a2: cdouble, a3: cstring, a4: ptr cdouble, a5: ptr cdouble) {.impgrC.}
+proc gr_fillarea*(a1: cint, a2: ptr cdouble, a3: ptr cdouble) {.impgrC.}
+proc gr_cellarray*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cint, a6: cint, a7: cint, a8: cint, a9: cint, a10: cint, a11: ptr cint) {.impgrC.}
+proc gr_nonuniformcellarray*(a1: ptr cdouble, a2: ptr cdouble, a3: cint, a4: cint, a5: cint, a6: cint, a7: cint, a8: cint, a9: ptr cint) {.impgrC.}
+proc gr_polarcellarray*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cdouble, a6: cdouble, a7: cint, a8: cint, a9: cint, a10: cint, a11: cint, a12: cint, a13: ptr cint) {.impgrC.}
+proc gr_gdp*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: cint, a5: cint, a6: ptr cint) {.impgrC.}
+proc gr_spline*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: cint, a5: cint) {.impgrC.}
+proc gr_gridit*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble, a5: cint, a6: cint, a7: ptr cdouble, a8: ptr cdouble, a9: ptr cdouble) {.impgrC.}
+proc gr_setlinetype*(a1: cint) {.impgrC.}
+proc gr_inqlinetype*(a1: ptr cint) {.impgrC.}
+proc gr_setlinewidth*(a1: cdouble) {.impgrC.}
+proc gr_inqlinewidth*(a1: ptr cdouble) {.impgrC.}
+proc gr_setlinecolorind*(a1: cint) {.impgrC.}
+proc gr_inqlinecolorind*(a1: ptr cint) {.impgrC.}
+proc gr_setmarkertype*(a1: cint) {.impgrC.}
+proc gr_inqmarkertype*(a1: ptr cint) {.impgrC.}
+proc gr_setmarkersize*(a1: cdouble) {.impgrC.}
+proc gr_inqmarkersize*(a1: ptr cdouble) {.impgrC.}
+proc gr_setmarkercolorind*(a1: cint) {.impgrC.}
+proc gr_inqmarkercolorind*(a1: ptr cint) {.impgrC.}
+proc gr_settextfontprec*(a1: cint, a2: cint) {.impgrC.}
+proc gr_setcharexpan*(a1: cdouble) {.impgrC.}
+proc gr_setcharspace*(a1: cdouble) {.impgrC.}
+proc gr_settextcolorind*(a1: cint) {.impgrC.}
+proc gr_inqtextcolorind*(a1: ptr cint) {.impgrC.}
+proc gr_setcharheight*(a1: cdouble) {.impgrC.}
+proc gr_setcharup*(a1: cdouble, a2: cdouble) {.impgrC.}
+proc gr_settextpath*(a1: cint) {.impgrC.}
+proc gr_settextalign*(a1: cint, a2: cint) {.impgrC.}
+proc gr_setfillintstyle*(a1: cint) {.impgrC.}
+proc gr_inqfillintstyle*(a1: ptr cint) {.impgrC.}
+proc gr_setfillstyle*(a1: cint) {.impgrC.}
+proc gr_inqfillstyle*(a1: ptr cint) {.impgrC.}
+proc gr_setfillcolorind*(a1: cint) {.impgrC.}
+proc gr_inqfillcolorind*(a1: ptr cint) {.impgrC.}
+proc gr_setcolorrep*(a1: cint, a2: cdouble, a3: cdouble, a4: cdouble) {.impgrC.}
+proc gr_setwindow*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble) {.impgrC.}
+proc gr_inqwindow*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble) {.impgrC.}
+proc gr_setviewport*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble) {.impgrC.}
+proc gr_inqviewport*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble) {.impgrC.}
+proc gr_selntran*(a1: cint) {.impgrC.}
+proc gr_setclip*(a1: cint) {.impgrC.}
+proc gr_setwswindow*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble) {.impgrC.}
+proc gr_setwsviewport*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble) {.impgrC.}
+proc gr_createseg*(a1: cint) {.impgrC.}
+proc gr_copysegws*(a1: cint) {.impgrC.}
+proc gr_redrawsegws*() {.impgrC.}
+proc gr_setsegtran*(a1: cint, a2: cdouble, a3: cdouble, a4: cdouble, a5: cdouble, a6: cdouble, a7: cdouble, a8: cdouble) {.impgrC.}
+proc gr_closeseg*() {.impgrC.}
+proc gr_emergencyclosegks*() {.impgrC.}
+proc gr_updategks*() {.impgrC.}
+proc gr_setspace*(a1: cdouble, a2: cdouble, a3: cint, a4: cint): cint {.impgrC.}
+proc gr_inqspace*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cint, a4: ptr cint) {.impgrC.}
+proc gr_setscale*(a1: cint): cint {.impgrC.}
+proc gr_inqscale*(a1: ptr cint) {.impgrC.}
+proc gr_textext*(a1: cdouble, a2: cdouble, a3: cstring): cint {.impgrC.}
+proc gr_inqtextext*(a1: cdouble, a2: cdouble, a3: cstring, a4: ptr cdouble, a5: ptr cdouble) {.impgrC.}
+proc gr_axes*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cint, a6: cint, a7: cdouble) {.impgrC.}
+# Declaration 'gr_axeslbl' skipped
+type
+  callback = proc(a1: cdouble, a2: cdouble, a3:var cstring, a4:cdouble) {.cdecl.}
 
-# TODO
-proc gr_inqtext*(a:cdouble, b:cdouble, c:cstring, d:ptr cdouble, e:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_fillarea*(a:cint, b:ptr cdouble, c:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_cellarray*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cint, f:cint, g:cint, h:cint, i:cint, j:cint, k:ptr cint)    {.importc,dynlib: libName.}
-proc gr_nonuniformcellarray*(a:ptr cdouble, b:ptr cdouble, c:cint, d:cint, e:cint, f:cint, g:cint, h:cint, i:ptr cint)    {.importc,dynlib: libName.}
-proc gr_polarcellarray*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cdouble, f:cdouble, g:cint, h:cint, i:cint, j:cint, k:cint, l:cint, m:ptr cint)    {.importc,dynlib: libName.}
-proc gr_gdp*(a:cint, b:ptr cdouble, c:ptr cdouble, d:cint, e:cint, f:ptr cint)    {.importc,dynlib: libName.}
-proc gr_spline*(a:cint, b:ptr cdouble, c:ptr cdouble, d:cint, e:cint)    {.importc,dynlib: libName.}
-proc gr_gridit*(a:cint, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble, e:cint, f:cint, g:ptr cdouble, h:ptr cdouble, i:ptr cdouble)    {.importc,dynlib: libName.}
+proc gr_axeslbl*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cint, a6: cint, a7: cdouble, a8,a9:callback) {.impgrC.}
 
-# DONE
-proc gr_setlinetype*(a:cint)    {.importc,dynlib: libName.}
-proc gr_inqlinetype*(a:ptr cint)    {.importc,dynlib: libName.}
-proc gr_setlinewidth*(a:cdouble)    {.importc,dynlib: libName.}
-proc gr_inqlinewidth*(a:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_setlinecolorind*(a:cint)    {.importc,dynlib: libName.}
-proc gr_inqlinecolorind*(a:ptr cint)    {.importc,dynlib: libName.}
+# Declaration 'gr_axeslbl' skipped
+proc gr_grid*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cint, a6: cint) {.impgrC.}
+proc gr_grid3d*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cdouble, a6: cdouble, a7: cint, a8: cint, a9: cint) {.impgrC.}
+proc gr_verrorbars*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble, a5: ptr cdouble) {.impgrC.}
+proc gr_herrorbars*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble, a5: ptr cdouble) {.impgrC.}
+proc gr_polyline3d*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble) {.impgrC.}
+proc gr_polymarker3d*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble) {.impgrC.}
+proc gr_axes3d*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cdouble, a6: cdouble, a7: cint, a8: cint, a9: cint, a10: cdouble) {.impgrC.}
+proc gr_titles3d*(a1: cstring, a2: cstring, a3: cstring) {.impgrC.}
+proc gr_surface*(a1: cint, a2: cint, a3: ptr cdouble, a4: ptr cdouble, a5: ptr cdouble, a6: cint) {.impgrC.}
+proc gr_contour*(a1: cint, a2: cint, a3: cint, a4: ptr cdouble, a5: ptr cdouble, a6: ptr cdouble, a7: ptr cdouble, a8: cint) {.impgrC.}
+proc gr_contourf*(a1: cint, a2: cint, a3: cint, a4: ptr cdouble, a5: ptr cdouble, a6: ptr cdouble, a7: ptr cdouble, a8: cint) {.impgrC.}
+proc gr_tricontour*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble, a5: cint, a6: ptr cdouble) {.impgrC.}
+proc gr_hexbin*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: cint): cint {.impgrC.}
+proc gr_setcolormap*(a1: cint) {.impgrC.}
+proc gr_inqcolormap*(a1: ptr cint) {.impgrC.}
+proc gr_setcolormapfromrgb*(n: cint, r: ptr cdouble, g: ptr cdouble, b: ptr cdouble, x: ptr cdouble) {.impgrC.}
+proc gr_colorbar*() {.impgrC.}
+proc gr_inqcolor*(a1: cint, a2: ptr cint) {.impgrC.}
+proc gr_inqcolorfromrgb*(a1: cdouble, a2: cdouble, a3: cdouble): cint {.impgrC.}
+proc gr_hsvtorgb*(h: cdouble, s: cdouble, v: cdouble, r: ptr cdouble, g: ptr cdouble, b: ptr cdouble) {.impgrC.}
+proc gr_tick*(a1: cdouble, a2: cdouble): cdouble {.impgrC.}
+proc gr_validaterange*(a1: cdouble, a2: cdouble): cint {.impgrC.}
+proc gr_adjustlimits*(a1: ptr cdouble, a2: ptr cdouble) {.impgrC.}
+proc gr_adjustrange*(a1: ptr cdouble, a2: ptr cdouble) {.impgrC.}
+proc gr_beginprint*(a1: cstring) {.impgrC.}
+proc gr_beginprintext*(a1: cstring, a2: cstring, a3: cstring, a4: cstring) {.impgrC.}
+proc gr_endprint*() {.impgrC.}
+proc gr_ndctowc*(a1: ptr cdouble, a2: ptr cdouble) {.impgrC.}
+proc gr_wctondc*(a1: ptr cdouble, a2: ptr cdouble) {.impgrC.}
+proc gr_wc3towc*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cdouble) {.impgrC.}
+proc gr_drawrect*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble) {.impgrC.}
+proc gr_fillrect*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble) {.impgrC.}
+proc gr_drawarc*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cdouble, a6: cdouble) {.impgrC.}
+proc gr_fillarc*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cdouble, a6: cdouble) {.impgrC.}
+proc gr_drawpath*(a1: cint, a2: ptr vertex_t, a3: ptr cuchar, a4: cint) {.impgrC.}
+proc gr_setarrowstyle*(a1: cint) {.impgrC.}
+proc gr_setarrowsize*(a1: cdouble) {.impgrC.}
+proc gr_drawarrow*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble) {.impgrC.}
+proc gr_readimage*(a1: cstring, a2: ptr cint, a3: ptr cint, a4: ptr ptr cint): cint {.impgrC.}
+proc gr_drawimage*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cint, a6: cint, a7: ptr cint, a8: cint) {.impgrC.}
+proc gr_importgraphics*(a1: cstring): cint {.impgrC.}
+proc gr_setshadow*(a1: cdouble, a2: cdouble, a3: cdouble) {.impgrC.}
+proc gr_settransparency*(a1: cdouble) {.impgrC.}
+# Declaration 'gr_setcoordxform' skipped
+# Declaration 'gr_setcoordxform' skipped
+proc gr_begingraphics*(a1: cstring) {.impgrC.}
+proc gr_endgraphics*() {.impgrC.}
+proc gr_getgraphics*(): cstring {.impgrC.}
+proc gr_drawgraphics*(a1: cstring): cint {.impgrC.}
+proc gr_mathtex*(a1: cdouble, a2: cdouble, a3: cstring) {.impgrC.}
+proc gr_inqmathtex*(a1: cdouble, a2: cdouble, a3: cstring, a4: ptr cdouble, a5: ptr cdouble) {.impgrC.}
+proc gr_beginselection*(a1: cint, a2: cint) {.impgrC.}
+proc gr_endselection*() {.impgrC.}
+proc gr_moveselection*(a1: cdouble, a2: cdouble) {.impgrC.}
+proc gr_resizeselection*(a1: cint, a2: cdouble, a3: cdouble) {.impgrC.}
+proc gr_inqbbox*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble) {.impgrC.}
+proc gr_precision*(): cdouble {.impgrC.}
+proc gr_setregenflags*(a1: cint) {.impgrC.}
+proc gr_inqregenflags*(): cint {.impgrC.}
+proc gr_savestate*() {.impgrC.}
+proc gr_restorestate*() {.impgrC.}
+proc gr_selectcontext*(a1: cint) {.impgrC.}
+proc gr_destroycontext*(a1: cint) {.impgrC.}
+proc gr_uselinespec*(a1: cstring): cint {.impgrC.}
+proc gr_delaunay*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cint, a5: ptr ptr cint) {.impgrC.}
+proc gr_reducepoints*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: cint, a5: ptr cdouble, a6: ptr cdouble) {.impgrC.}
+proc gr_trisurface*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble) {.impgrC.}
+proc gr_gradient*(a1: cint, a2: cint, a3: ptr cdouble, a4: ptr cdouble, a5: ptr cdouble, a6: ptr cdouble, a7: ptr cdouble) {.impgrC.}
+proc gr_quiver*(a1: cint, a2: cint, a3: ptr cdouble, a4: ptr cdouble, a5: ptr cdouble, a6: ptr cdouble, a7: cint) {.impgrC.}
+proc gr_interp2*(nx: cint, ny: cint, x: ptr cdouble, y: ptr cdouble, z: ptr cdouble, nxq: cint, nyq: cint, xq: ptr cdouble, yq: ptr cdouble, zq: ptr cdouble, `method`: cint, extrapval: cdouble) {.impgrC.}
+proc gr_version*(): cstring {.impgrC.}
+proc gr_shade*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: cint, a5: cint, a6: ptr cdouble, a7: cint, a8: cint, a9: ptr cint) {.impgrC.}
+proc gr_shadepoints*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: cint, a5: cint, a6: cint) {.impgrC.}
+proc gr_shadelines*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: cint, a5: cint, a6: cint) {.impgrC.}
+proc gr_panzoom*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: ptr cdouble, a6: ptr cdouble, a7: ptr cdouble, a8: ptr cdouble) {.impgrC.}
+# Declaration 'gr_findboundary' skipped
+# Declaration 'gr_findboundary' skipped
+proc gr_setresamplemethod*(a1: cuint) {.impgrC.}
+proc gr_inqresamplemethod*(a1: ptr cuint) {.impgrC.}
+proc gr_path*(a1: cint, a2: ptr cdouble, a3: ptr cdouble, a4: cstring) {.impgrC.}
+proc gr_setborderwidth*(a1: cdouble) {.impgrC.}
+proc gr_inqborderwidth*(a1: ptr cdouble) {.impgrC.}
+proc gr_setbordercolorind*(a1: cint) {.impgrC.}
+proc gr_inqbordercolorind*(a1: ptr cint) {.impgrC.}
+proc gr_setprojectiontype*(a1: cint) {.impgrC.}
+proc gr_inqprojectiontype*(a1: ptr cint) {.impgrC.}
+proc gr_setperspectiveprojection*(a1: cdouble, a2: cdouble, a3: cdouble) {.impgrC.}
+proc gr_inqperspectiveprojection*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cdouble) {.impgrC.}
+proc gr_settransformationparameters*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cdouble, a6: cdouble, a7: cdouble, a8: cdouble, a9: cdouble) {.impgrC.}
+proc gr_inqtransformationparameters*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble, a5: ptr cdouble, a6: ptr cdouble, a7: ptr cdouble, a8: ptr cdouble, a9: ptr cdouble) {.impgrC.}
+proc gr_setorthographicprojection*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cdouble, a6: cdouble) {.impgrC.}
+proc gr_inqorthographicprojection*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble, a5: ptr cdouble, a6: ptr cdouble) {.impgrC.}
+proc gr_camerainteraction*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble) {.impgrC.}
+proc gr_setwindow3d*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble, a5: cdouble, a6: cdouble) {.impgrC.}
+proc gr_inqwindow3d*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cdouble, a4: ptr cdouble, a5: ptr cdouble, a6: ptr cdouble) {.impgrC.}
+proc gr_setscalefactors3d*(a1: cdouble, a2: cdouble, a3: cdouble) {.impgrC.}
+proc gr_inqscalefactors3d*(a1: ptr cdouble, a2: ptr cdouble, a3: ptr cdouble) {.impgrC.}
+proc gr_transformationinterfaceforrepl*(a1: cdouble, a2: cdouble, a3: cdouble, a4: cdouble) {.impgrC.}
 
-proc gr_setmarkertype*(a:cint)    {.importc,dynlib: libName.}
-proc gr_inqmarkertype*(a:ptr cint)    {.importc,dynlib: libName.}
-proc gr_setmarkersize*(a:cdouble)    {.importc,dynlib: libName.}
-proc gr_inqmarkersize*(a:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_setmarkercolorind*(a:cint)    {.importc,dynlib: libName.}
-proc gr_inqmarkercolorind*(a:ptr cint)    {.importc,dynlib: libName.}
-
-# TODO
-proc gr_settextfontprec*(a:cint, b:cint)    {.importc,dynlib: libName.}
-proc gr_setcharexpan*(a:cdouble)    {.importc,dynlib: libName.}
-proc gr_setcharspace*(a:cdouble)    {.importc,dynlib: libName.}
-proc gr_settextcolorind*(a:cint)    {.importc,dynlib: libName.}
-proc gr_setcharheight*(a:cdouble)    {.importc,dynlib: libName.}
-proc gr_setcharup*(a:cdouble, b:cdouble)    {.importc,dynlib: libName.}
-proc gr_settextpath*(a:cint)    {.importc,dynlib: libName.}
-proc gr_settextalign*(a:cint, b:cint)    {.importc,dynlib: libName.}
-proc gr_setfillintstyle*(a:cint)    {.importc,dynlib: libName.}
-proc gr_inqfillintstyle*(a:ptr cint)    {.importc,dynlib: libName.}
-proc gr_setfillstyle*(a:cint)    {.importc,dynlib: libName.}
-proc gr_inqfillstyle*(a:ptr cint)    {.importc,dynlib: libName.}
-proc gr_setfillcolorind*(a:cint)    {.importc,dynlib: libName.}
-proc gr_inqfillcolorind*(a:ptr cint)    {.importc,dynlib: libName.}
-proc gr_setcolorrep*(a:cint, b:cdouble, c:cdouble, d:cdouble)    {.importc,dynlib: libName.}
-
-proc gr_setwindow*(a:cdouble, b:cdouble, c:cdouble, d:cdouble)    {.importc,dynlib: libName.}
-proc gr_inqwindow*(a:ptr cdouble, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_setviewport*(a:cdouble, b:cdouble, c:cdouble, d:cdouble)    {.importc,dynlib: libName.}
-proc gr_inqviewport*(a:ptr cdouble, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble)    {.importc,dynlib: libName.}
-
-proc gr_selntran*(a:cint)    {.importc,dynlib: libName.}
-proc gr_setclip*(a:cint)    {.importc,dynlib: libName.}
-
-proc gr_setwswindow*(a:cdouble, b:cdouble, c:cdouble, d:cdouble)    {.importc,dynlib: libName.}
-proc gr_setwsviewport*(a:cdouble, b:cdouble, c:cdouble, d:cdouble)    {.importc,dynlib: libName.}
-
-proc gr_createseg*(a:cint)    {.importc,dynlib: libName.}
-proc gr_copysegws*(a:cint)    {.importc,dynlib: libName.}
-proc gr_redrawsegws*()    {.importc,dynlib: libName.}
-proc gr_setsegtran*(a:cint, b:cdouble, c:cdouble, d:cdouble, e:cdouble, f:cdouble, g:cdouble, h:cdouble)    {.importc,dynlib: libName.}
-proc gr_closeseg*()    {.importc,dynlib: libName.}
-proc gr_emergencyclosegks*()    {.importc,dynlib: libName.}
-proc gr_updategks*()    {.importc,dynlib: libName.}
-proc gr_setspace*(a:cdouble, b:cdouble, c:cint, d:cint):cint    {.importc,dynlib: libName.}
-proc gr_inqspace*(a:ptr cdouble, b:ptr cdouble, c:ptr cint, d:ptr cint)    {.importc,dynlib: libName.}
-proc gr_setscale*(a:cint):cint    {.importc,dynlib: libName.}
-proc gr_inqscale*(a:ptr cint)    {.importc,dynlib: libName.}
-proc gr_textext*(a:cdouble, b:cdouble, c:cstring):cint    {.importc,dynlib: libName.}
-proc gr_inqtextext*(a:cdouble, b:cdouble, c:cstring, d:ptr cdouble, e:ptr cdouble)    {.importc,dynlib: libName.}
-# DONE
-proc gr_axes*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cint, f:cint, g:cdouble)    {.importc,dynlib: libName.}
-
-proc gr_grid*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cint, f:cint)    {.importc,dynlib: libName.}
-proc gr_grid3d*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cdouble, f:cdouble, g:cint, h:cint, i:cint)    {.importc,dynlib: libName.}
-
-# TODO
-proc gr_verrorbars*(a:cint, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble, e:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_herrorbars*(a:cint, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble, e:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_polyline3d*(a:cint, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_polymarker3d*(a:cint, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_axes3d*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cdouble, f:cdouble, g:cint, h:cint, i:cint, j:cdouble)    {.importc,dynlib: libName.}
-proc gr_titles3d*(a:cstring, b:cstring, c:cstring)    {.importc,dynlib: libName.}
-proc gr_surface*(a:cint, b:cint, c:ptr cdouble, d:ptr cdouble, e:ptr cdouble, f:cint)    {.importc,dynlib: libName.}
-proc gr_contour*(a:cint, b:cint, c:cint, d:ptr cdouble, e:ptr cdouble, f:ptr cdouble, g:ptr cdouble, h:cint)    {.importc,dynlib: libName.}
-proc gr_contourf*(a:cint, b:cint, c:cint, d:ptr cdouble, e:ptr cdouble, f:ptr cdouble, g:ptr cdouble, h:cint)    {.importc,dynlib: libName.}
-proc gr_tricontour*(a:cint, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble, e:cint, f:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_hexbin*(a:cint, b:ptr cdouble, c:ptr cdouble, d:cint):cint    {.importc,dynlib: libName.}
-
-proc gr_setcolormap*(a:cint)    {.importc,dynlib: libName.}
-proc gr_inqcolormap*(a:ptr cint)    {.importc,dynlib: libName.}
-proc gr_setcolormapfromrgb*(n:cint, r:ptr cdouble, g:ptr cdouble, b:ptr cdouble, x:ptr cdouble)    {.importc,dynlib: libName.}
-
-proc gr_colorbar*()    {.importc,dynlib: libName.}
-proc gr_inqcolor*(a:cint, b:ptr cint)    {.importc,dynlib: libName.}
-proc gr_inqcolorfromrgb*(a:cdouble, b:cdouble, c:cdouble):cint    {.importc,dynlib: libName.}
-proc gr_hsvtorgb*(h:cdouble, s:cdouble, v:cdouble, r:ptr cdouble, g:ptr cdouble, b:ptr cdouble)    {.importc,dynlib: libName.}
-
-proc gr_tick*(a:cdouble, b:cdouble):cdouble    {.importc,dynlib: libName.}
-
-proc gr_validaterange*(a:cdouble, b:cdouble):cint    {.importc,dynlib: libName.}
-proc gr_adjustlimits*(a:ptr cdouble, b:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_adjustrange*(a:ptr cdouble, b:ptr cdouble)    {.importc,dynlib: libName.}
-
-proc gr_beginprint*(a:cstring)    {.importc,dynlib: libName.}
-proc gr_beginprintext*(a:cstring, b:cstring, c:cstring, d:cstring)    {.importc,dynlib: libName.}
-proc gr_endprint*()    {.importc,dynlib: libName.}
-
-proc gr_ndctowc*(a:ptr cdouble, b:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_wctondc*(a:ptr cdouble, b:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_wc3towc*(a:ptr cdouble, b:ptr cdouble, c:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_drawrect*(a:cdouble, b:cdouble, c:cdouble, d:cdouble)    {.importc,dynlib: libName.}
-proc gr_fillrect*(a:cdouble, b:cdouble, c:cdouble, d:cdouble)    {.importc,dynlib: libName.}
-proc gr_drawarc*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cdouble, f:cdouble)    {.importc,dynlib: libName.}
-proc gr_fillarc*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cdouble, f:cdouble)    {.importc,dynlib: libName.}
-proc gr_drawpath*(a:cint, b:ptr vertex_t, c:ptr cuchar, d:cint)    {.importc,dynlib: libName.}
-proc gr_setarrowstyle*(a:cint)    {.importc,dynlib: libName.}
-proc gr_setarrowsize*(a:cdouble)    {.importc,dynlib: libName.}
-proc gr_drawarrow*(a:cdouble, b:cdouble, c:cdouble, d:cdouble)    {.importc,dynlib: libName.}
-proc gr_readimage*(a:cstring, b:ptr cint, c:ptr cint, d:ptr ptr cint):cint    {.importc,dynlib: libName.}
-proc gr_drawimage*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cint, f:cint, g:ptr cint, h:cint)    {.importc,dynlib: libName.}
-proc gr_importgraphics*(a:cstring):cint    {.importc,dynlib: libName.}
-proc gr_setshadow*(a:cdouble, b:cdouble, c:cdouble)    {.importc,dynlib: libName.}
-proc gr_settransparency*(a:cdouble)    {.importc,dynlib: libName.}
-proc gr_setcoordxform*(a:cdouble)    {.importc,dynlib: libName.}
-proc gr_begingraphics*(a:cstring)    {.importc,dynlib: libName.}
-proc gr_endgraphics*()    {.importc,dynlib: libName.}
-proc gr_getgraphics*():cstring    {.importc,dynlib: libName.}
-proc gr_drawgraphics*(a:cstring):cint    {.importc,dynlib: libName.}
-proc gr_mathtex*(a:cdouble, b:cdouble, c:cstring)    {.importc,dynlib: libName.}
-proc gr_inqmathtex*(a:cdouble, b:cdouble, c:cstring, d:ptr cdouble, e:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_beginselection*(a:cint, b:cint)    {.importc,dynlib: libName.}
-proc gr_endselection*()    {.importc,dynlib: libName.}
-proc gr_moveselection*(a:cdouble, b:cdouble)    {.importc,dynlib: libName.}
-proc gr_resizeselection*(a:cint, b:cdouble, c:cdouble)    {.importc,dynlib: libName.}
-proc gr_inqbbox*(a:ptr cdouble, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_precision*():cdouble    {.importc,dynlib: libName.}
-proc gr_setregenflags*(a:cint)    {.importc,dynlib: libName.}
-proc gr_inqregenflags*():cint    {.importc,dynlib: libName.}
-proc gr_savestate*()    {.importc,dynlib: libName.}
-proc gr_restorestate*()    {.importc,dynlib: libName.}
-proc gr_selectcontext*(a:cint)    {.importc,dynlib: libName.}
-proc gr_destroycontext*(a:cint)    {.importc,dynlib: libName.}
-proc gr_uselinespec*(a:cstring):cint    {.importc,dynlib: libName.}
-proc gr_delaunay*(a:cint, b:ptr cdouble, c:ptr cdouble, d:ptr cint, e:ptr ptr cint)    {.importc,dynlib: libName.}
-proc gr_reducepoints*(a:cint, b:ptr cdouble, c:ptr cdouble, d:cint, e:ptr cdouble, f:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_trisurface*(a:cint, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_gradient*(a:cint, b:cint, c:ptr cdouble, d:ptr cdouble, e:ptr cdouble, f:ptr cdouble, g:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_quiver*(a:cint, b:cint, c:ptr cdouble, d:ptr cdouble, e:ptr cdouble, f:ptr cdouble, g:cint)    {.importc,dynlib: libName.}
-proc gr_interp2*(nx:cint, ny:cint, x:ptr cdouble, y:ptr cdouble, z:ptr cdouble, nxq:cint, nyq:cint, xq:ptr cdouble, yq:ptr cdouble, zq:ptr cdouble, `method`:cint, extrapval:cdouble)    {.importc,dynlib: libName.}
-proc gr_version*():cstring    {.importc,dynlib: libName.}
-proc gr_shade*(a:cint, b:ptr cdouble, c:ptr cdouble, d:cint, e:cint, f:ptr cdouble, g:cint, h:cint, i:ptr cint)    {.importc,dynlib: libName.}
-proc gr_shadepoints*(a:cint, b:ptr cdouble, c:ptr cdouble, d:cint, e:cint, f:cint)    {.importc,dynlib: libName.}
-proc gr_shadelines*(a:cint, b:ptr cdouble, c:ptr cdouble, d:cint, e:cint, f:cint)    {.importc,dynlib: libName.}
-proc gr_panzoom*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:ptr cdouble, f:ptr cdouble, g:ptr cdouble, h:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_setresamplemethod*(a:cuint)    {.importc,dynlib: libName.}
-proc gr_inqresamplemethod*(a:ptr cuint)    {.importc,dynlib: libName.}
-proc gr_path*(a:cint, b:ptr cdouble, c:ptr cdouble, d:cstring)    {.importc,dynlib: libName.}
-proc gr_setborderwidth*(a:cdouble)    {.importc,dynlib: libName.}
-proc gr_inqborderwidth*(a:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_setbordercolorind*(a:cint)    {.importc,dynlib: libName.}
-proc gr_inqbordercolorind*(a:ptr cint)    {.importc,dynlib: libName.}
-proc gr_setprojectiontype*(a:cint)    {.importc,dynlib: libName.}
-proc gr_setperspectiveprojection*(a:cdouble, b:cdouble, c:cdouble)    {.importc,dynlib: libName.}
-proc gr_settransformationparameters*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cdouble, f:cdouble, g:cdouble, h:cdouble, i:cdouble)    {.importc,dynlib: libName.}
-proc gr_setorthographicprojection*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cdouble, f:cdouble)    {.importc,dynlib: libName.}
-proc gr_inqprojectiontype*(a:ptr cint)    {.importc,dynlib: libName.}
-proc gr_inqtransformationparameters*(a:ptr cdouble, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble, e:ptr cdouble, f:ptr cdouble, g:ptr cdouble, h:ptr cdouble, i:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_inqperspectiveprojection*(a:ptr cdouble, b:ptr cdouble, c:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_inqorthographicprojection*(a:ptr cdouble, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble, e:ptr cdouble, f:ptr cdouble)    {.importc,dynlib: libName.}
-proc gr_camerainteraction*(a:cdouble, b:cdouble, c:cdouble, d:cdouble)    {.importc,dynlib: libName.}
-proc gr_setwindow3d*(a:cdouble, b:cdouble, c:cdouble, d:cdouble, e:cdouble, f:cdouble)    {.importc,dynlib: libName.}
-proc gr_inqwindow3d*(a:ptr cdouble, b:ptr cdouble, c:ptr cdouble, d:ptr cdouble, e:ptr cdouble, f:ptr cdouble)    {.importc,dynlib: libName.}

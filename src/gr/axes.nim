@@ -101,3 +101,27 @@ proc tick*(min,max:float):float =
   ## Calculates the spacing between ticks in order to have 5 minor ticks 
   # replaces gr_tick
   (max-min)/5.0
+
+
+type
+  ScaleType = enum
+    stX_LOG,  ## Logarithmic X-axis
+    stY_LOG,  ## Logarithmic Y-axis
+    stZ_LOG,  ## Logarithmic Z-axis
+    stFLIP_X, ## Flip X-axis
+    stFLIP_Y, ## Flip Y-axis
+    stFLIP_Z  ## Flip Z-axis
+
+
+
+proc setScale(scale:ScaleType) =
+  ##[
+  Set the type of transformation to be used for subsequent GR output primitives.
+
+  This function defines the current transformation according to the given scale specification which may be or’ed together using any of the above options. GR uses these options for all subsequent output primitives until another value is provided. The scale options are used to transform points from an abstract logarithmic or semi-logarithmic coordinate system, which may be flipped along each axis, into the world coordinate system.
+
+  Note:
+
+  When applying a logarithmic transformation to a specific axis, the system assumes that the axes limits are greater than zero.
+  ]##
+  discard gr_setscale(scale.cint)

@@ -5,3 +5,4 @@ examples/*
 ^examples/*.nim
 *.png
 *.svg
+src/wrapper/*

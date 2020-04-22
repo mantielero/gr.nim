@@ -1,24 +1,37 @@
 #import common, polyline, axes, grid, gr_wrapper
 import math
 
-proc findLimits(number:float):array[2,float] =
+
+proc calcLimit*(val:float;upper=true):float =
   ## Find the order of a number. This means, it checks if 
   ## a number is between 0.001 and 0.01 or
-  ## between 1000.0 and 10000.0, for example.
-  let n = abs(number)
-  if n == 0.0:
-     result = [0.0,0.0]
-  elif n > 0.1 and n <= 1.0:
-     result = [0.0,1.0] 
-  else:
-     let val = log10(n)
-     let min = val.int
-     result = [10.0^min, 10.0^(min+1)]
+  ## between 1000.0 and 10000.0, for example.  
+  let sign = val / abs(val)     # Get the sign
+  let om = log10(abs(val)).int  # Get order of magnitude (smaller abs)
+  var step = pow(10.0,om.float) * sign
+  var tmp = step  
+  if val == 0.0:
+    return 0.0
 
-     if val == min.float:
-        result[1] = result[0]
-  if n == -number and n != 0.0:
-    result = [-1.0 * result[1], -1.0 * result[0]]
+  elif abs(val) mod step == 0.0:    
+    return val
+  
+  elif val > 0.0:
+    while val > tmp:
+      tmp += step
+    if upper:
+      return tmp          #Upper
+    else:
+      return tmp - step   # Lower
+
+  elif val < 0.0:     
+    while val < tmp:
+      tmp += step
+    if upper:
+      return tmp - step  # We get the previous one
+    else:
+      return tmp 
+
 
 proc calcLimits( datasets:seq[Dataset]; limits:array[4,float]=[0.0,0.0,0.0,0.0] ):tuple[x1,x2,x3,x4:float] =
   var xmin = high(float)
@@ -34,10 +47,11 @@ proc calcLimits( datasets:seq[Dataset]; limits:array[4,float]=[0.0,0.0,0.0,0.0] 
       ymax = max(ds.y.max, ymax)
     # Once we have min and max values, we find "beautiful" close numbers
     #echo (xmin, xmax, ymin, ymax) # (-2.0, 2.000000000000001, 0.0, 8.000000000000004)
-    xmin = findLimits(xmin)[0]
-    xmax = findLimits(xmax)[1]
-    ymin = findLimits(ymin)[0]
-    ymax = findLimits(ymax)[1]
+    #let (m,M) = findLimits(xmin)
+    xmin = calcLimit(xmin, upper=false)#findLimits(xmin)[0]
+    xmax = calcLimit(xmax, upper=true)#findLimits(xmax)[1]
+    ymin = calcLimit(ymin, upper=false)#findLimits(ymin)[0]
+    ymax = calcLimit(ymax, upper=true)#findLimits(ymax)[1]
   else:
     xmin = limits[0]
     xmax = limits[1]    
@@ -94,10 +108,10 @@ proc plot*(datasets:seq[Dataset], filename:string; limits:array[4,float]=[0.0,0.
       xmax = max(ds.x.max, xmax)
       ymin = min(ds.y.min, ymin)
       ymax = max(ds.y.max, ymax)
-    xmin = findLimits(xmin)[0]
-    xmax = findLimits(xmax)[1]
-    ymin = findLimits(ymin)[0]
-    ymax = findLimits(ymax)[1]
+    xmin = calcLimit(xmin, upper=false) 
+    xmax = calcLimit(xmax, upper=true)  
+    ymin = calcLimit(ymin, upper=false)  
+    ymax = calcLimit(ymax, upper=true) 
   else:
     xmin = limits[0]
     xmax = limits[1]    
