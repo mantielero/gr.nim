@@ -1,8 +1,8 @@
 include/*
 test/*
-^test/*.nim
+!test/*.nim
 examples/*
-^examples/*.nim
+!examples/*.nim
 *.png
 *.svg
 src/wrapper/*
