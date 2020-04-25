@@ -1,5 +1,5 @@
 type
-  FillingStyle = enum
+  FillingStyle* = enum
     fillHOLLOW  = 0, ## No filling. Just draw the bounding polyline
     fillSOLID   = 1, ## Fill the interior of the polygon using the fill color index
     fillPATTERN = 2, ## Fill the interior of the polygon using the style index as a pattern index
@@ -26,17 +26,18 @@ proc FillArea*(x, y:seq[float]) =
   FillArea(n, cast[ptr float](x.unsafeAddr), cast[ptr float](y.unsafeAddr))
 
 
-proc setFillingStyle*(style:FillingStyle) =
+proc setFillintStyle*(style:FillingStyle) =
   ## Set the fill area interior style to be used for fill areas.
   ## This function defines the interior style for subsequent fill area output primitives. The default interior style is HOLLOW.
   gr_setfillintstyle(style.cint)
 
 
+#[
 proc getFillintStyle():FillingStyle =
   var style:cint
-  gr_inqfillintstyle*(style.unsafeAddr)
+  gr_inqfillintstyle(style.unsafeAddr)
   return style.FillingStyle
-
+]#
 
 proc setFillStyle*(style:int) = # For PATTERN or HATCH
   ##[
@@ -68,6 +69,8 @@ proc setFillColor*(color:Color) =
   ]##
   gr_setfillcolorind(color.cint)
 
+
+#[
 proc getFillColor*():Color =
   ## Gets the current fill area color index.
   ##
@@ -76,3 +79,4 @@ proc getFillColor*():Color =
   gr_inqfillcolorind*(color.unsafeAddr)
   return color.Color
 
+]#

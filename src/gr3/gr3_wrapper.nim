@@ -9,10 +9,10 @@
 import nimterop/types
 
 when defined(windows):
-  const dynlibFile = "libGR3.dll"
+  const dynlibFile3 = "libGR3.dll"
 
 elif defined(linux):
-  const dynlibFile = "/usr/gr/lib/libGR3.so"
+  const dynlibFile3 = "/usr/gr/lib/libGR3.so"
 
 const
 
@@ -68,7 +68,7 @@ const
   GR_VOLUME_MIP* = 2
 
 {.pragma: impgr3, importc.}
-{.pragma: impgr3C, impgr3, cdecl, dynlib: dynlibFile.}
+{.pragma: impgr3C, impgr3, cdecl, dynlib: dynlibFile3.}
 
 type
   gr3_coord_t* {.bycopy.} = object
