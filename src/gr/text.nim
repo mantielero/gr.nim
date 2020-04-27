@@ -73,13 +73,16 @@ proc text*(x,y:float, cad:string) =
   ]##
   gr_text(x.cdouble, y.cdouble, cad.cstring)
 
-#[
-proc getText*(x,y:float, cad:string, d:ptr cdouble, e:ptr cdouble)):tuple[d,e:float] =
-  var a,b:cdouble
-  gr_inqtext(x.cdouble, y.cdouble, cad.cstring, a.addr, b.addr)
-  return (a.float,b.float)
-]#
 
+proc getText*(x,y:float, cad:string):tuple[d,e:float] =
+  var a,b:cdouble
+  gr_inqtext(x.cdouble, y.cdouble, cad.cstring, a.unsafeAddr, b.unsafeAddr)
+  return (a.float,b.float)
+
+proc getTextColor*():Color =
+  var tmp:cint
+  gr_inqtextcolorind(tmp.unsafeAddr)
+  return tmp.Color
 
 proc setTextFontPrecision*(font:Font, precision:TextPrecision) = 
   ## Specify the text font and precision for subsequent text output primitives.

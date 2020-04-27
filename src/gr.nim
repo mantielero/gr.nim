@@ -31,9 +31,15 @@ include gr/polyline
 include gr/text
 include gr/plot
 include gr/fillarea
+include gr/other
 include gr3/gr3_wrapper
 include gr3/common
 #, common, axes, polyline
 #export Dataset, plot
 
+
+include api/axes
+
+
+include api/figure
 

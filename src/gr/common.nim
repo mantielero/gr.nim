@@ -3,6 +3,7 @@
 
 type
   Color* = range[0..1255]
+
   Window* = object
     ## Rectangular subspace of world coordinates to be plotted
     xmin*:float ## The left horizontal coordinate of the window (xmin < xmax).
@@ -16,7 +17,7 @@ type
 
 
 
-proc setWindow*(xmin, xmax,ymin,ymax:float) =
+proc setWindow*[F:SomeFloat](xmin, xmax,ymin,ymax:F) =
   ##[
   Establishes a window, or rectangular subspace, of world coordinates to be plotted. If you desire log scaling or mirror-imaging of axes, use the gr_setscale function.
 
@@ -31,7 +32,7 @@ proc setWindow*(xmin, xmax,ymin,ymax:float) =
   ]##
   gr_setwindow(xmin.cdouble, xmax.cdouble, ymin.cdouble, ymax.cdouble)
 
-proc setWindow*(xmin, xmax, ymin, ymax, zmin, zmax:float) =
+proc setWindow*[F:SomeFloat](xmin, xmax, ymin, ymax, zmin, zmax:F) =
   ##[
   Set the three dimensional window. Only used for perspective and orthographic projection.
 
@@ -62,8 +63,8 @@ template update*(body:untyped) =
     body
     gr_updatews()
 
-proc linRange*(i, j:float, n:int ):seq[float] =
-  let step = (j - i) / (n ).float
+proc linRange*[F:SomeFloat](i, j:float, n:Natural ):seq[float] =
+  let step = (j - i).float / (n ).float
   var tmp:seq[float]
   var val = i
   for k in 0..n:
@@ -143,13 +144,12 @@ proc setWorkStationWindow*[F:SomeFloat](xmin, xmax,ymin,ymax:F) =
   gr_setwswindow(xmin.cdouble, xmax.cdouble, ymin.cdouble, ymax.cdouble)
 
 proc setViewport*() =
-
-#[ https://gr-framework.org/examples/pyside_ex.html?highlight=setwsviewport
+  #[ https://gr-framework.org/examples/pyside_ex.html?highlight=setwsviewport
 
           self.currentDevicePixelRatio = self.devicePixelRatioF()
         mwidth  = self.w * 2.54 / self.logicalDpiX() / 100 / self.currentDevicePixelRatio
         mheight = self.h * 2.54 / self.logicalDpiY() / 100 / self.currentDevicePixelRatio
-]#
+  ]#
 
   #gr_setwsviewport(0, msize, 0, msize * ratio)
   let (mwidth, mheight, width, height) = getDSPsize()
@@ -304,24 +304,21 @@ proc setSpace*(zmin, zmax:float, rotation, tilt:int):int =
   return tmp.int
 
 
-proc contour*(x,y,z, h:seq[float], major_h:int) =
+proc initgr*() =
   ##[
-(int nx, int ny, int nh, double *px, double *py, double *h, double *pz, int major_h)
-Draw contours of a three-dimensional data set whose values are specified over a rectangular mesh. Contour lines may optionally be labeled.
-
-Parameters:
-
-- `nx`: The number of points along the X axis
-- `ny`: The number of points along the Y axis
-- `nh`: The number of height values
-- `px`: A pointer to the X coordinates
-- `py`: A pointer to the Y coordinates
-- `h`: A pointer to the height values
-- `pz`: A pointer to the Z coordinates
-- `major_h`: Directs GR to label contour lines. For example, a value of 3 would label every third line. A value of 1 will label every line. A value of 0 produces no labels. To produce colored contour lines, add an offset of 1000 to major_h
+  TBD
   ]##
+  gr_initgr()
 
-  gr_contour( x.len.cint, y.len.cint, h.len.cint, 
-              cast[ptr cdouble](x[0].unsafeAddr), cast[ptr cdouble](y[0].unsafeAddr),
-              cast[ptr cdouble](h[0].unsafeAddr), cast[ptr cdouble](z[0].unsafeAddr), 
-              3.cint)
+proc openGKS*() =
+  ##[
+  TBD
+  ]##
+  gr_opengks()
+
+proc closeGKS*() =
+  ##[
+  TBD
+  ]##
+  gr_closegks()  
+
