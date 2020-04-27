@@ -63,7 +63,7 @@ template update*(body:untyped) =
     body
     gr_updatews()
 
-proc linRange*[F:SomeFloat](i, j:float, n:Natural ):seq[float] =
+proc linRange*[F:SomeFloat](i, j:F, n:Natural ):seq[float] =
   let step = (j - i).float / (n ).float
   var tmp:seq[float]
   var val = i

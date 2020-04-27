@@ -108,7 +108,7 @@ type
 #  ------------------------- argument container ---------------------------------------------------------------------
 proc grm_args_new*(): ptr grm_args_t {.impgrmC.}
 proc grm_args_delete*(a1: ptr grm_args_t) {.impgrmC.}
-proc grm_args_push*(a1: ptr grm_args_t, a2: cstring, a3: cstring): cint {.impgrmC.}
+proc grm_args_push*(a1: ptr grm_args_t, a2: cstring, a3: cstring): cint {.impgrmC,varargs.}
 proc grm_args_push_buf*(a1: ptr grm_args_t, a2: cstring, a3: cstring, a4: pointer, a5: cint): cint {.impgrmC.}
 proc grm_args_contains*(a1: ptr grm_args_t, a2: cstring): cint {.impgrmC.}
 proc grm_args_clear*(a1: ptr grm_args_t) {.impgrmC.}

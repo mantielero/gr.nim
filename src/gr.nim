@@ -34,6 +34,7 @@ include gr/fillarea
 include gr/other
 include gr3/gr3_wrapper
 include gr3/common
+include grm/grm_wrapper
 #, common, axes, polyline
 #export Dataset, plot
 
