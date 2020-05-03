@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Benchmark - GR.nim</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Benchmark";
+    var mkdocs_page_input_path = "benchmark.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> GR.nim</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Introduction</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="..">Purpose</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../status/">Status</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../todo/">TODO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Simple plots</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">1D</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../histogram/">Histogram</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">2D</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../plot2/">Plot2</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../hexbin/">Hexbin</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../scatter2d/">Scatter</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../stem/">Stem</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">3d</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../contour/">Contour</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../contourf/">Contourf</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../heatmap/">Heatmap</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../plot3/">Plot3</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../surface/">Surface</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../tricont/">Tri_cont</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../trisurf/">Tri_surf</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../wireframe/">Wireframe</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">4d</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../scatter4d/">Scatter</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Benchmark</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#long-story-short">Long story short</a></li>
+    
+
+    <li class="toctree-l3"><a href="#code">Code</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#nimgr">Nim+Gr</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#python-gr-and-python-matplotlib">Python + GR and Python + Matplotlib</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../plot/">plot file</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">GR.nim</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Other &raquo;</li>
+        
+      
+    
+    <li>Benchmark</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/mantielero/gr.nim#doc/docs/benchmark.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="long-story-short">Long story short</h1>
+<p>The performance is really good. In my laptop with an Intel(R) Core(TM) i7-4770HQ, I get:</p>
+<ul>
+<li>Nim+GR: 1088fps</li>
+<li>Python+GR: 387fps</li>
+<li>Python + Matplotlib: 46fps</li>
+</ul>
+<h1 id="code">Code</h1>
+<h2 id="nimgr">Nim+Gr</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">gr</span>
+<span class="kn">import</span> <span class="n">times</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">sugar</span><span class="p">,</span> <span class="n">sequtils</span>  <span class="c"># os</span>
+
+<span class="k">let</span> <span class="n">tstart</span> <span class="o">=</span> <span class="n">cpuTime</span><span class="p">()</span>
+<span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="n">linRange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">PI</span><span class="p">,</span> <span class="mi">629</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mf">1</span><span class="p">..</span><span class="mi">2000</span><span class="p">:</span>
+    <span class="k">let</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="kt">float</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">))</span> 
+    <span class="n">gr_clearws</span><span class="p">()</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="c">#sleep(1)</span>
+
+<span class="k">let</span> <span class="n">fps_gr</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="mf">200.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">cpuTime</span><span class="p">()</span> <span class="o">-</span> <span class="n">tstart</span><span class="p">))</span>
+<span class="n">echo</span> <span class="s">&quot;fps  (GR): &quot;</span><span class="p">,</span> <span class="n">fps_gr</span>
+</code></pre></div>
+
+<p>and compiled like:
+<div class="codehilite"><pre><span></span><code>$ nim c -d:release -d:danger bench.nim
+</code></pre></div></p>
+<h1 id="python-gr-and-python-matplotlib">Python + GR and Python + Matplotlib</h1>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span><span class="p">,</span> <span class="n">sleep</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GKS_WSTYPE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;gksqt&quot;</span>
+
+<span class="n">num_frames</span> <span class="o">=</span> <span class="mi">2000</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+
+<span class="c1"># create an animation using GR</span>
+
+<span class="kn">from</span> <span class="nn">gr.pygr</span> <span class="kn">import</span> <span class="n">plot</span>
+
+<span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_frames</span><span class="p">):</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">i</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>
+
+<span class="n">fps_gr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_frames</span> <span class="o">/</span> <span class="p">(</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">tstart</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fps  (GR): </span><span class="si">%4d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">fps_gr</span><span class="p">)</span>
+
+<span class="c1"># create the same animation using matplotlib</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">plot</span><span class="p">,</span> <span class="n">draw</span><span class="p">,</span> <span class="n">pause</span>
+
+<span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_frames</span><span class="p">):</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">i</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">))</span>
+    <span class="n">draw</span><span class="p">()</span>
+    <span class="n">pause</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">)</span>
+
+<span class="n">fps_mpl</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_frames</span> <span class="o">/</span> <span class="p">(</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">tstart</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fps (mpl): </span><span class="si">%4d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">fps_mpl</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  speedup: </span><span class="si">%6.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">fps_gr</span><span class="p">)</span> <span class="o">/</span> <span class="n">fps_mpl</span><span class="p">))</span>
+</code></pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../plot/" class="btn btn-neutral float-right" title="plot file">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../scatter4d/" class="btn btn-neutral" title="Scatter"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/mantielero/gr.nim" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../scatter4d/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../plot/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

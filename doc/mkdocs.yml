@@ -31,6 +31,9 @@ nav:
       - Wireframe: wireframe.md  
     - 4d:
       - Scatter: scatter4d.md
+  - Other:
+    - Benchmark: benchmark.md
+    - plot file: plot.md
 
 repo_url: https://github.com/mantielero/gr.nim
 edit_uri: '#doc/docs/'
