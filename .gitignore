@@ -3,6 +3,6 @@ test/*
 !test/*.nim
 examples/*
 !examples/*.nim
-*.png
-*.svg
+examples/*.png
+examples/*.svg
 src/wrapper/*
