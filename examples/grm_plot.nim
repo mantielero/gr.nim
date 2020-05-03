@@ -1,4 +1,4 @@
-import ../src/gr
+import gr
 import sequtils, sugar, math
 
 let x = linRange(-2.0, 2.0, 40)

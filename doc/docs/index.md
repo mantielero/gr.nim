@@ -4,6 +4,15 @@ This is a plotting library for the Nim programming language.
 It is based on the [GR framework](https://gr-framework.org/).
 
 
+## Pre-requisites
+You need to have [Nim](https://nim-lang.org/) obviously and the [GR framework](https://gr-framework.org/) installed on your system.
+
+## Installing gr.nim
+Just do:
+```
+nimble install https://github.com/mantielero/gr.nim
+```
+
 ## About GR Framework
 [GR framework](https://gr-framework.org/) includes several libraries:
 
