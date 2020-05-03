@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Surface - GR.nim</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Surface";
+    var mkdocs_page_input_path = "surface.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> GR.nim</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Introduction</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="..">Purpose</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../status/">Status</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../todo/">TODO</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Simple plots</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">1D</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../histogram/">Histogram</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">2D</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../plot2/">Plot2</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../hexbin/">Hexbin</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../scatter2d/">Scatter</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../stem/">Stem</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">3d</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../contour/">Contour</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../contourf/">Contourf</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../heatmap/">Heatmap</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../plot3/">Plot3</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">Surface</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#surface">Surface</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../tricont/">Tri_cont</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../trisurf/">Tri_surf</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../wireframe/">Wireframe</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">4d</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../scatter4d/">Scatter</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">GR.nim</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>3d &raquo;</li>
+        
+      
+        
+          <li>Simple plots &raquo;</li>
+        
+      
+    
+    <li>Surface</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/mantielero/gr.nim#doc/docs/surface.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="surface">Surface</h1>
+<p>The following code:
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">gr</span>
+<span class="kn">import</span> <span class="n">sequtils</span><span class="p">,</span> <span class="n">sugar</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">random</span>
+
+<span class="k">let</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="kd">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">newSeq</span><span class="o">[</span><span class="kt">float</span><span class="o">]</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="kd">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">newSeq</span><span class="o">[</span><span class="kt">float</span><span class="o">]</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="kd">var</span> <span class="n">z</span> <span class="o">=</span> <span class="n">newSeq</span><span class="o">[</span><span class="kt">float</span><span class="o">]</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mf">0</span><span class="p">..</span><span class="o">&lt;</span><span class="n">n</span><span class="p">:</span>
+  <span class="n">x</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mf">8.0</span> <span class="o">*</span> <span class="n">rand</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">-</span> <span class="mf">4.0</span>
+  <span class="n">y</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mf">8.0</span> <span class="o">*</span> <span class="n">rand</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">-</span> <span class="mf">4.0</span>
+  <span class="n">z</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
+
+<span class="n">surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+
+<span class="k">discard</span> <span class="n">readLine</span><span class="p">(</span><span class="n">stdin</span><span class="p">)</span>
+<span class="n">grm_finalize</span><span class="p">()</span>
+</code></pre></div></p>
+<p>creates the following window:</p>
+<p><img alt="Surface" src="../imgs/surface.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tricont/" class="btn btn-neutral float-right" title="Tri_cont">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../plot3/" class="btn btn-neutral" title="Plot3"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/mantielero/gr.nim" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../plot3/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../tricont/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
+# NOT WORKING
 import ../src/gr
-import math, random
+import  math, random
 
 let n = 100
 var x = newSeq[float](n)
@@ -10,8 +11,9 @@ for i in 0..<n:
   y[i] = 8.0 * rand(1.0) - 4.0
   z[i] = sin(x[i]) + cos(y[i])
 
-contour(x, y, z)
+#var args:grm_args_t
+contourf( x, y, z )
 
-discard readLine(stdin)   # Wait for a key press
-
+discard readLine(stdin)
+#grm_args_delete(args)
 grm_finalize()

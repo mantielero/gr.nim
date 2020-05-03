@@ -1,3 +1,4 @@
+# NOT WORKING
 import ../src/gr
 import math, random
 
@@ -10,8 +11,7 @@ for i in 0..<n:
   y[i] = 8.0 * rand(1.0) - 4.0
   z[i] = sin(x[i]) + cos(y[i])
 
-contour(x, y, z)
+heatmap(x,y,z)
 
-discard readLine(stdin)   # Wait for a key press
-
+discard readLine(stdin)
 grm_finalize()

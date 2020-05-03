@@ -1,4 +1,4 @@
-# NOT WORKING
+# Using the binding directly
 import ../src/gr
 import sequtils, sugar, math, random
 

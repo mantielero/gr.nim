@@ -1,0 +1,54 @@
+site_name: GR.nim
+
+theme:
+  name: readthedocs
+#  name: material
+#  highlightjs: true
+
+
+nav:
+  - Introduction:
+    - Purpose: index.md
+    - Status: status.md
+    - TODO: todo.md
+
+  - Simple plots:
+    - 1D:
+      - Histogram: histogram.md
+    - 2D:
+      - Plot2: plot2.md
+      - Hexbin: hexbin.md
+      - Scatter: scatter2d.md
+      - Stem: stem.md
+    - 3d:
+      - Contour: contour.md
+      - Contourf: contourf.md
+      - Heatmap: heatmap.md
+      - Plot3: plot3.md
+      - Surface: surface.md
+      - Tri_cont: tricont.md
+      - Tri_surf: trisurf.md    
+      - Wireframe: wireframe.md  
+    - 4d:
+      - Scatter: scatter4d.md
+
+repo_url: https://github.com/mantielero/gr.nim
+edit_uri: '#doc/docs/'
+#docs_dir: doc/
+site_dir: ../docs/
+
+extra_javascript:
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+- smarty
+- admonition
+- codehilite
+- pymdownx.details
+- pymdownx.superfences
+- pymdownx.arithmatex
+- mdx_math:
+    enable_dollar_delimiter: true
+
+plugins:
+- search
