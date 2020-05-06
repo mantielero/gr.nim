@@ -67,9 +67,10 @@ proc linRange*[F:SomeFloat](i, j:F, n:Natural ):seq[float] =
   let step = (j - i).float / (n ).float
   var tmp:seq[float]
   var val = i
-  for k in 0..n:
+  for k in 0..n-1:
     tmp &= val
     val += step
+  tmp &= j
   return tmp
 
 
